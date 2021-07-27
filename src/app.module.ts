@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { PetsModule } from './pets/pets.module';
 import { GraphqlSettingModule } from './graphql-setting/graphql-setting.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { StoresModule } from './stores/stores.module';
 @Module({
   imports: [
     GraphqlSettingModule,
@@ -18,9 +19,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       // migrations : ????
       synchronize : false,
     }),
-    PetsModule, 
-    
-    
+    PetsModule,
+    StoresModule,
   ],
   controllers: [AppController],
   providers: [AppService],
