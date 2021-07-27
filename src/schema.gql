@@ -1,0 +1,17 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Pet {
+  id: Int!
+  name: String!
+  petType: String
+}
+
+type Query {
+  pets: [Pet!]!
+}
+
+type Mutation {
+  createPet(name: String, petType: String): Pet!
+}
