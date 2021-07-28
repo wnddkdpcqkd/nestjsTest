@@ -3,4 +3,5 @@ import { petsInterface } from './pets.Interface'
 
 @ArgsType()
 export class petsDTO extends PartialType(
-    PickType(petsInterface,['name','petType']), ArgsType) {}
+    PickType(petsInterface,['name','petType','store_id']), ArgsType
+) {}

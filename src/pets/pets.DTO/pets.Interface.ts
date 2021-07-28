@@ -1,5 +1,6 @@
 import { ArgsType, Field, Int, InterfaceType } from "@nestjs/graphql";
 import { IsNumber, IsString } from "class-validator";
+import { Store } from "src/stores/store.entity";
 import { Column, PrimaryGeneratedColumn } from "typeorm";
 
 
@@ -12,7 +13,7 @@ export class petsInterface {
     @IsNumber()
     id : number;
     
-    @Field()
+    @Field(type => String)
     @Column()
     @IsString()
     name : string;
@@ -22,4 +23,8 @@ export class petsInterface {
     @IsString()
     petType : string;
 
+    @Field({nullable : true})
+    @Column()
+    @IsNumber()
+    store_id : number;
 }

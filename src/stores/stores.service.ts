@@ -16,6 +16,8 @@ export class StoresService {
     }
 
     async findAll(): Promise<Store[]> {
-        return this.storesRepository.find();
+        return this.storesRepository.find({
+            relations: ['Pets'],
+        });
     }
 }

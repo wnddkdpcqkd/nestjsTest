@@ -17,7 +17,8 @@ import { StoresModule } from './stores/stores.module';
       database : 'test',
       entities : ['dist/**/*.entity{.ts,.js}'],
       // migrations : ????
-      synchronize : false,
+      synchronize : true,
+      // logging : true,
     }),
     PetsModule,
     StoresModule,

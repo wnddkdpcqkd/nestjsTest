@@ -1,6 +1,6 @@
 import { ArgsType, Field, Int, InterfaceType } from "@nestjs/graphql";
 import { IsNumber, IsString } from "class-validator";
-import { Column, PrimaryGeneratedColumn } from "typeorm";
+import { Column, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 
 @ArgsType()
@@ -18,7 +18,7 @@ export class storesInterface {
     name : string;
 
     @Field({nullable : true})
-    @Column()
+    @Column({nullable : true})
     @IsString()
     address : string;
 

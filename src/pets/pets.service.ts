@@ -16,6 +16,8 @@ export class PetsService {
     }
 
     async findAll(): Promise<Pet[]> {
-        return this.petsRepository.find();
+        return this.petsRepository.find({
+            relations: ['store'],
+        });
     }
 }

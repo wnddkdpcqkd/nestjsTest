@@ -2,16 +2,19 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Pet {
-  id: Int!
-  name: String!
-  petType: String
-}
-
 type Store {
   id: Int!
   name: String!
   address: String
+  Pets: [Pet!]!
+}
+
+type Pet {
+  id: Int!
+  name: String!
+  petType: String
+  store_id: Float
+  store: Store!
 }
 
 type Query {
@@ -20,6 +23,6 @@ type Query {
 }
 
 type Mutation {
-  createPet(name: String, petType: String): Pet!
+  createPet(name: String, petType: String, store_id: Float): Pet!
   createStore(name: String, address: String): Store!
 }

@@ -1,19 +1,17 @@
 import { Field, Int, ObjectType } from "@nestjs/graphql";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Store } from "src/stores/store.entity";
+import { storesInterface } from "src/stores/stores.DTO/stores.interface";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { petsInterface } from "./pets.DTO/pets.Interface";
 
 @ObjectType()
 @Entity()
-export class Pet {
-    
-    @Field(type => Int)
-    @PrimaryGeneratedColumn()
-    id : number;
+export class Pet extends petsInterface{
 
     @Field()
-    @Column()
-    name : string;
+    @ManyToOne(type => Store , (store) => store.Pets)
+    @JoinColumn({ name: 'store_id', referencedColumnName: 'id' })
+    store : Store
     
-    @Field({nullable : true})
-    @Column({nullable : true})
-    petType? : string;
+    
 }
